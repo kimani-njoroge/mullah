@@ -14,3 +14,20 @@ def create_user_profile(sender, instance, created, **kwargs):
 @receiver(post_save, sender=User)
 def save_user_profile(sender, instance, **kwargs):
    instance.profile.save()
+
+
+class Category(models.Model):
+    FOOD = 'FOOD'
+    ENTERTAINMENT = 'ENTERTAINMENT'
+    FUEL = 'FUEL'
+    NAME = (
+        (FOOD, 'food'),
+        (ENTERTAINMENT,'entertainment'),
+        (FUEL,'fuel')
+    )
+    name = models.CharField(max_length=15,choices=NAME,default=None)
+    user = models.ForeignKey(User,on_delete=models.CASCADE)
+
+class Ammount(models.Model):
+    price = models.IntegerField
+    category = models.ForeignKey(Category)
