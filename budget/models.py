@@ -15,6 +15,9 @@ def create_user_profile(sender, instance, created, **kwargs):
 def save_user_profile(sender, instance, **kwargs):
    instance.profile.save()
 
+class Transaction(models.Model):
+    user = models.ForeignKey(User,on_delete=models.CASCADE)
+
 
 class Category(models.Model):
     FOOD = 'FOOD'
@@ -27,7 +30,9 @@ class Category(models.Model):
     )
     name = models.CharField(max_length=15,choices=NAME,default=None)
     user = models.ForeignKey(User,on_delete=models.CASCADE)
+    transaction = models.ForeignKey(Transaction)
 
 class Ammount(models.Model):
     price = models.IntegerField
     category = models.ForeignKey(Category)
+    transaction = models.ForeignKey(Transaction)
