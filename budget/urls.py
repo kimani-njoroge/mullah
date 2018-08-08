@@ -3,4 +3,7 @@ from . import views
 
 urlpatterns=[
     url(r'^$',views.index,name = 'index'),
+    url(r'^transaction', views.post, name='transaction'),
+
+
 ]
