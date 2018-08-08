@@ -9,4 +9,7 @@ class CategoryForm(forms.ModelForm):
 class TransactionForm(forms.ModelForm):
     class Meta:
         model = Transaction
+        widgets = {
+            'date': forms.DateInput(attrs={'class':'datepicker'}),
+        }
         exclude = ['category']
