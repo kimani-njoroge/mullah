@@ -1,0 +1,14 @@
+{%extends "base.html" %}
+{% load bootstrap4 %}
+{% load static %}
+{% block content %}
+    <div class="container">
+        <div class="row">
+            {% if user.is_authenticated %}
+                <p>loggedin</p>
+            {% else %}
+                not logged in
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
