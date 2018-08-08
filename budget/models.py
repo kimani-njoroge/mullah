@@ -3,6 +3,8 @@ from django.db import models
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 
+
+
 class Profile(models.Model):
    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="profile")
 
@@ -37,6 +39,7 @@ class Category(models.Model):
 class Transaction(models.Model):
     price = models.CharField(max_length=40,blank=True)
     category = models.ForeignKey(Category)
+    date = models.DateField()
 
     def transaction_save(self):
         self.save()
