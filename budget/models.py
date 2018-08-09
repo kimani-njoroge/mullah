@@ -30,6 +30,7 @@ class Transaction(models.Model):
     name = models.CharField(max_length=15, choices=NAME, default=None)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     price = models.CharField(max_length=40,blank=True)
+    date = models.DateField()
 
     def __str__(self):
         return self.name

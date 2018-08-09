@@ -5,4 +5,5 @@ from .models import Profile,Transaction
 class TransactionForm(forms.ModelForm):
     class Meta:
         model = Transaction
-        exclude = ['user']
+        fields = ['name','price','date']
+    date = forms.DateField(widget=forms.DateInput(attrs={'type':'date'}))
