@@ -29,7 +29,7 @@ class Transaction(models.Model):
     )
     name = models.CharField(max_length=15, choices=NAME, default=None)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    price = models.CharField(max_length=40,blank=True)
+    price = models.DecimalField(max_digits=8,decimal_places=2)
     date = models.DateField()
 
     def __str__(self):
