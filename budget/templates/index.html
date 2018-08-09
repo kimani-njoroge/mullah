@@ -11,24 +11,46 @@
 
         {% if user.is_authenticated %}
             <div class="add">
-                <h1>Add Transaction</h1>
                 <a href="{% url 'transaction' %}"><div class="btn btn-outline-info add"><i class="fas fa-plus"></i></div></a>
             </div>
-            <div class="transact">
-                {% for transact in transactions %}
-                    {{ transact.name }}
-                {% endfor %}
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="transact">
+                        {% for transact in transactions %}
+                            <div class="row shw">
+                                <div class="col-6 name">{{ transact.name }}</div>
+                                <div class="col-6 name">{{ transact.price }}</div>
+                            </div>
+                            <hr>
+
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    {% if total is not None %}
+                        <div class="total">
+                            <div class="card tots">
+                                <div class="card-header hehe">
+                                    Total
+                                </div>
+                                <div class="card-body">
+                                    <p class="center">{{ total }}</p>
+
+                                </div>
+                            </div>
+                        </div>
+                    {% else %}
+                    {% endif %}
+                </div>
             </div>
-            {% if total is not None %}
-            <div class="total">
-                {{ total }}
-            </div>
-                {% else %}
-                {% endif %}
+
+
         {% else %}
             not logged in
         {% endif %}
-        <a href="{% url 'export' %}"><button class="btn btn-outline-info">Print report</button></a>
+    <div class="row repo">
+         <a href="{% url 'export' %}"><button class="btn btn-outline-info">Print report</button></a>
+    </div>
 
     </div>
 {% endblock %}

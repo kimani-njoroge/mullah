@@ -2,6 +2,11 @@
 {% load bootstrap4 %}
 {% load static %}
 {% block content %}
+        {% block styles %}
+        {% bootstrap_css %}
+        <link rel="stylesheet" href="{% static 'css/post.css' %}">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    {% endblock %}
      <script>
   $(function() {
     $( ".datepicker" ).datepicker({
@@ -14,12 +19,12 @@
   });
   </script>
     <div class="container">
-        <div class="row">
+        <div class="row post">
             <form action="{% url 'transaction'  %}" method="post" enctype="multipart/form-data">
                 {% csrf_token %}
                 {% bootstrap_form form %}
 
-                <input type="submit" class="btn btn-outline secondary btn-lg" value="Post">
+                <input type="submit" class="btn btn-outline-info btn-lg" value="Post">
                 <input type="hidden" name="next" value="/">
             </form>
             <hr>

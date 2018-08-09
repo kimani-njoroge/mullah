@@ -1,7 +1,7 @@
 body{
-    /*background-color: darkorange;*/
+    background-color: #166088;
 }
-.card{
+.logs{
     background: rgba(0, 0, 0, 0.5);
 }
 .add{
@@ -9,4 +9,73 @@ body{
     width: 50%;
     /*border: 3px solid green;*/
     padding: 10px;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+.card{
+    margin-top: 30%;
+}
+h3{
+    color: white;
+}
+label{
+    color: white;
+}
+.foot{
+    color: white;
+}
+
+.transact{
+    margin:auto;
+    width: 50%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 25px;
+    padding: 10px;
+    height:40vh;
+    color: white;
+    margin-top: 7.5%;
+    /*background: rgba(0, 0, 0, 0.5);*/
+    overflow: auto;
+}    /* width */
+.transact::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+.transact::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px #1490AA;
+    border-radius: 10px;
+}
+
+/* Handle */
+.transact::-webkit-scrollbar-thumb {
+    background: #1490AA;
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+.transact::-webkit-scrollbar-thumb:hover {
+    background: #1490AA;
+}
+
+.tots{
+    margin-top: 7.5%;
+    height:40vh;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 25px;
+    width: 50%;
+    background-color: #166088;
+    color: white;
+}
+.center{
+    margin: 21%;
+    padding-left: 8px;
+    font-size: 28px;
+}
+.hehe{
+    padding-left:100px;
+}
+.repo{
+    padding-left:33%;
+    margin:7%;
 }

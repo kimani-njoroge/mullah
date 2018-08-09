@@ -14,7 +14,7 @@
                 {% if form.errors %}
                     <p>Incorrect Password</p>
                 {% endif %}
-                <div class="card">
+                <div class="card logs">
                     <div class="card-header">
                         <h3>Sign In</h3>
                     </div>
@@ -24,7 +24,7 @@
                             {% bootstrap_form form %}
                             <div class="form-group">
                                 <input type="submit" class="btn btn-outline-info btn-sm" value="Login">
-                                <span><p>Don't have an account,<a href="/accounts/register">Sign Up</a></p></span>
+                                <span><p class="foot">Don't have an account,<a href="/accounts/register">Sign Up</a></p></span>
                             </div>
                             <input type="hidden" name="next" value="/">
                         </form>
