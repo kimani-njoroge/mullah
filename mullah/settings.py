@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'bootstrap4',
     'budget',
     'import_export',
+    'djmoney',
 ]
 
 MIDDLEWARE = [
