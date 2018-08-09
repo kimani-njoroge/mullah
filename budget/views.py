@@ -4,7 +4,9 @@ from django.shortcuts import render, get_object_or_404, redirect
 
 from budget.models import Transaction
 from .forms import  TransactionForm
-import csv from django.http import HttpResponse
+import csv
+from django.http import HttpResponse
+from .resources import TransactionResource
 
 
 # Create your views here.
@@ -31,3 +33,12 @@ def post(request):
     else:
         form = TransactionForm()
     return render(request,'post.html',{"form":form})
+
+def export(request):
+    user = request.user
+    transaction_resource = TransactionResource()
+    queryset = Transaction.objects.filter(user=user)
+    dataset = transaction_resource.export(queryset)
+    response = HttpResponse(dataset.csv,content_type='text/csv')
+    response['Content-Disposition'] = 'attachment; filename="Transactions.csv"'
+    return response

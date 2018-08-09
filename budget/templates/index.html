@@ -28,7 +28,7 @@
         {% else %}
             not logged in
         {% endif %}
-        <a href=""><button class="btn btn-outline-info">Print report</button></a>
+        <a href="{% url 'export' %}"><button class="btn btn-outline-info">Print report</button></a>
 
     </div>
 {% endblock %}
