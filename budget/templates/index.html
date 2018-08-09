@@ -19,12 +19,16 @@
                     {{ transact.name }}
                 {% endfor %}
             </div>
+            {% if total is not None %}
             <div class="total">
                 {{ total }}
             </div>
+                {% else %}
+                {% endif %}
         {% else %}
             not logged in
         {% endif %}
+        <a href=""><button class="btn btn-outline-info">Print report</button></a>
 
     </div>
 {% endblock %}
