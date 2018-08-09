@@ -1,0 +1,12 @@
+body{
+    background-color: darkorange;
+}
+.card{
+    background: rgba(0, 0, 0, 0.5);
+}
+.add{
+    margin: auto;
+    width: 50%;
+    /*border: 3px solid green;*/
+    padding: 10px;
+}

@@ -18,28 +18,21 @@ def save_user_profile(sender, instance, **kwargs):
    instance.profile.save()
 
 
-class Category(models.Model):
+class Transaction(models.Model):
     FOOD = 'FOOD'
     ENTERTAINMENT = 'ENTERTAINMENT'
     FUEL = 'FUEL'
     NAME = (
         (FOOD, 'food'),
-        (ENTERTAINMENT,'entertainment'),
-        (FUEL,'fuel')
+        (ENTERTAINMENT, 'entertainment'),
+        (FUEL, 'fuel')
     )
-    name = models.CharField(max_length=15,choices=NAME,default=None)
-    user = models.ForeignKey(User,on_delete=models.CASCADE)
+    name = models.CharField(max_length=15, choices=NAME, default=None)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    price = models.CharField(max_length=40,blank=True)
 
     def __str__(self):
         return self.name
-
-    def category_save(self):
-        self.save()
-
-class Transaction(models.Model):
-    price = models.CharField(max_length=40,blank=True)
-    category = models.ForeignKey(Category)
-    date = models.DateField()
 
     def transaction_save(self):
         self.save()
