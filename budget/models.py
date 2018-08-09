@@ -2,7 +2,7 @@ from django.contrib.auth.models import User
 from django.db import models
 from django.db.models.signals import post_save
 from django.dispatch import receiver
-
+from djmoney.models.fields import MoneyField
 
 
 class Profile(models.Model):
@@ -29,7 +29,7 @@ class Transaction(models.Model):
     )
     name = models.CharField(max_length=15, choices=NAME, default=None)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    price = models.DecimalField(max_digits=8,decimal_places=2)
+    price = MoneyField(max_digits=8,decimal_places=2,default_currency='KES')
     date = models.DateField()
 
     def __str__(self):
