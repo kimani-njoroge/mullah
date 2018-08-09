@@ -1,12 +1,9 @@
 from  django import forms
-from .models import Profile,Transaction,Category
+from .models import Profile,Transaction
 
-class CategoryForm(forms.ModelForm):
-    class Meta:
-        model = Category
-        exclude = ['user']
 
 class TransactionForm(forms.ModelForm):
     class Meta:
         model = Transaction
-        exclude = ['category']
+        fields = ['name','price','date']
+    date = forms.DateField(widget=forms.DateInput(attrs={'type':'date'}))

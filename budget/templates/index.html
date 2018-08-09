@@ -2,13 +2,26 @@
 {% load bootstrap4 %}
 {% load static %}
 {% block content %}
+    {% block styles %}
+        {% bootstrap_css %}
+        <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    {% endblock %}
     <div class="container">
-        <div class="row">
-            {% if user.is_authenticated %}
-                <p>loggedin</p>
-            {% else %}
-                not logged in
-            {% endif %}
-        </div>
+
+        {% if user.is_authenticated %}
+            <div class="add">
+                <h1>Add Transaction</h1>
+                <a href="{% url 'transaction' %}"><div class="btn btn-outline-info add"><i class="fas fa-plus"></i></div></a>
+            </div>
+            <div class="transact">
+                {% for transact in transactions %}
+                    {{ transact.name }}
+                {% endfor %}
+            </div>
+        {% else %}
+            not logged in
+        {% endif %}
+
     </div>
 {% endblock %}

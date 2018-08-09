@@ -2,12 +2,22 @@
 {% load bootstrap4 %}
 {% load static %}
 {% block content %}
+     <script>
+  $(function() {
+    $( ".datepicker" ).datepicker({
+      changeMonth: true,
+      changeYear: true,
+      yearRange: "1900:2020",
+      // You can put more options here.
+
+    });
+  });
+  </script>
     <div class="container">
         <div class="row">
             <form action="{% url 'transaction'  %}" method="post" enctype="multipart/form-data">
                 {% csrf_token %}
                 {% bootstrap_form form %}
-                {% bootstrap_form tform %}
 
                 <input type="submit" class="btn btn-outline secondary btn-lg" value="Post">
 
