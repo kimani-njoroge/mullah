@@ -42,3 +42,12 @@ def export(request):
     response = HttpResponse(dataset.csv,content_type='text/csv')
     response['Content-Disposition'] = 'attachment; filename="Transactions.csv"'
     return response
+
+def xls(request):
+    user = request.user
+    transaction_resource = TransactionResource()
+    queryset = Transaction.objects.filter(user=user)
+    dataset = transaction_resource.export(queryset)
+    response = HttpResponse(dataset.xls,content_type='application/vnd.ms-excel')
+    response['Content-Disposition'] = 'attachment; filename="Transactions.xls"'
+    return response
