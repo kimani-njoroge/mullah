@@ -1,1 +1,1 @@
-web: gunicorn mullah.wsgi --log-file -
+web: gunicorn mullah.wsgi
